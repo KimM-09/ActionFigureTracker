@@ -1,0 +1,15 @@
+import express from 'express';
+import { addFigure, getMyFigs } from '../controllers/figureController';
+import { protect } from '../middleware/authMiddleware.js';
+
+const router = express.Router();
+
+
+//All figure routes are "protected"
+//POST /api/figures/add
+router.post("/add", protect, addFigure);
+
+//GET /api/figures/my-collection
+router.get("/my-collection", protect, getMyFigs)
+
+export default router;
