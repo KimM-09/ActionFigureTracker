@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const figureSchema = new mongoose.Schema({
-    collection: {type: String, required: true},
+    branding: {type: String, required: true},
     series:{type: String, required: true},
     name: {type: String, required: true},
     number: {type: String, required: true},

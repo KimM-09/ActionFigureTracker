@@ -1,5 +1,5 @@
 import express from 'express';
-import { addFigure, getMyFigs } from '../controllers/figureController';
+import { addFigure, getMyFigs } from '../controllers/figureController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();

@@ -1,10 +1,10 @@
-import Figure from "../models/figureSchema";
+import Figure from "../models/figureSchema.js";
 
 export const addFigure = async(req, res) => {
     try {
-        const {collection, series, name, number, exclusive, chase, condition } = req.body;
+        const {branding, series, name, number, exclusive, chase, condition,notes } = req.body;
         const newFigure = new Figure({
-            collection,
+            branding,
             series,
             name,
             number,
