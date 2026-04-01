@@ -1,30 +1,34 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router';
+import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
-import Dashboard from './pages/Dashboard'
-import Homepage from './pages/Homepage'
+
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Dashboard from './pages/Dashboard'
 import AddFigure from './pages/AddFigure';
+import Nav from './components/Nav';
 
 
 const App = () => {
   return (
-    <div>
+    <AuthProvider>
      <BrowserRouter> 
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+     <Nav />
+      <div className='container mx-auto p-4'>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
-        {/* Private Routes */}
-        <Route path="/" element={user ? <ProtectedRoute><Dashboard /></ProtectedRoute> : <Homepage />} />
-        <Route path="/add-figure" element={<AddFigure />} />
-      </Routes>
+          {/* Private Routes */}
+          <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/add-figure" element={<ProtectedRoute><AddFigure /></ProtectedRoute>} />
+        </Routes>
+      </div>
      </BrowserRouter>
-    </div>
-  )
+    </AuthProvider>
+  );
 }
 
 export default App
