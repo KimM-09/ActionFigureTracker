@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -13,7 +13,7 @@ import Nav from './components/Nav';
 const App = () => {
   return (
     <AuthProvider>
-     <BrowserRouter> 
+     
      <Nav />
       <div className='container mx-auto p-4'>
         <Routes>
@@ -26,7 +26,7 @@ const App = () => {
           <Route path="/add-figure" element={<ProtectedRoute><AddFigure /></ProtectedRoute>} />
         </Routes>
       </div>
-     </BrowserRouter>
+     
     </AuthProvider>
   );
 }
