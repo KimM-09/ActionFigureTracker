@@ -19,7 +19,7 @@ const Login = () => {
         body: JSON.stringify({ email, password })
       });
       const data = await response.json();
-
+      console.log(data)
       if(response.ok) {
         login(data); //save user and token to context
         navigate('/'); //Redirect to collection

@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import AddFigure from './pages/AddFigure';
 import Nav from './components/Nav';
+import EditFigure from './pages/EditFigure';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           {/* Private Routes */}
           <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/add-figure" element={<ProtectedRoute><AddFigure /></ProtectedRoute>} />
+          <Route path='/edit/:id' element={<ProtectedRoute><EditFigure /></ProtectedRoute>} />
         </Routes>
       </div>
      

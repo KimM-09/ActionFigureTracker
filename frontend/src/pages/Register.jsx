@@ -37,7 +37,7 @@ const Register = () => {
         <form onSubmit={handleSubmit} className='p-8 bg-white shadow-md rounded-lg w-96'>
           <h2 className='text-2xl font-bold mb-6 text-center'>Register</h2>
           <input 
-            type="text"
+            type="text" placeholder='Username'
             className='w-full p-2 mb-4 border rounded'
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -52,7 +52,7 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className='w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700'>
-            Sign In
+            Register
           </button>
         </form>
       </div>
