@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext, Children } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
 const AuthContext = createContext();
 
@@ -6,6 +6,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    //check if the user is already logged in (stored in localStorage)
     useEffect(() => {
         const savedUser = localStorage.getItem('userInfo');
         if(savedUser) {

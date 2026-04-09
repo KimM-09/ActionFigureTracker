@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router';
-import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
 import Login from './pages/Login'
@@ -13,8 +12,7 @@ import EditFigure from './pages/EditFigure';
 
 const App = () => {
   return (
-    <AuthProvider>
-     
+    <>
      <Nav />
       <div className='container mx-auto p-4'>
         <Routes>
@@ -23,13 +21,12 @@ const App = () => {
           <Route path="/register" element={<Register />} />
 
           {/* Private Routes */}
-          <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/add-figure" element={<ProtectedRoute><AddFigure /></ProtectedRoute>} />
+          <Route path="/my-collection" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/add" element={<ProtectedRoute><AddFigure /></ProtectedRoute>} />
           <Route path='/edit/:id' element={<ProtectedRoute><EditFigure /></ProtectedRoute>} />
         </Routes>
       </div>
-     
-    </AuthProvider>
+    </> 
   );
 }
 

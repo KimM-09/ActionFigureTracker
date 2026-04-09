@@ -11,7 +11,7 @@ const Register = () => {
     const navigate = useNavigate();
   
     const handleSubmit = async (e) => {
-      e.preventDefalut();
+      e.preventDefault();
   
       try {
         const response = await fetch('http://localhost:5001/api/users/register', {
@@ -23,7 +23,7 @@ const Register = () => {
   
         if(response.ok) {
           login(data); //save user and token to context
-          navigate('/'); //Redirect to collection
+          navigate('/my-collection'); //Redirect to collection
         } else {
           alert(data.message)
         }

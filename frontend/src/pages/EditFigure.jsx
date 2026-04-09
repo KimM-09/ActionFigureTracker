@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 const EditFigure = () => {
     const { id } = useParams();
     const { user } = useAuth();
-    const { navigate } = useNavigate();
+    const  navigate  = useNavigate();
 
     const [formData, setFormData] = useState({
         name: '',
@@ -53,7 +53,11 @@ const EditFigure = () => {
             });
 
             if(response.ok){
-                navigate('/');
+                navigate('/my-collection');
+            } else {
+                const errorData = await response.json();
+            console.error("Server Error Details:", errorData);
+            alert(`Error: ${errorData.message || 'Something went wrong'}`);
             }
         } catch (error) {
             console.error("Update error", error);
@@ -157,7 +161,7 @@ const EditFigure = () => {
                 <button
                     type='button'
                     className='flex-1 bg-gray-200 text-gray-700 py-2 rounded-md'
-                    onClick={() => navigate('/')}
+                    onClick={() => navigate('/my-collection')}
                 >
                     Cancel
                 </button>

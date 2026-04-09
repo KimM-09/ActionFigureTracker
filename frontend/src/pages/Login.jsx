@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefalut();
+    e.preventDefault();
 
     try {
       const response = await fetch('http://localhost:5001/api/users/login', {
@@ -19,10 +19,10 @@ const Login = () => {
         body: JSON.stringify({ email, password })
       });
       const data = await response.json();
-      console.log(data)
+      
       if(response.ok) {
         login(data); //save user and token to context
-        navigate('/'); //Redirect to collection
+        navigate('/my-collection'); //Redirect to collection
       } else {
         alert(data.message)
       }
