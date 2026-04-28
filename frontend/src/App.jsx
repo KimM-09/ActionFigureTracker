@@ -20,12 +20,9 @@ const App = () => {
      <Nav />
       <div className='container mx-auto p-4'>
         <Routes>
-          {/* Public Routes */}
           <Route path='/' element={user ? <ProtectedRoute><Dashboard /></ProtectedRoute> : <Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
-          {/* Private Routes */}
           <Route path="/my-collection" element={user ? <ProtectedRoute><Dashboard /></ProtectedRoute> : <Login />} />
           <Route path="/add" element={user ? <ProtectedRoute><AddFigure /></ProtectedRoute> : <Login />} />
           <Route path='/edit/:id' element={user ? <ProtectedRoute><EditFigure /></ProtectedRoute> : <Login />} />

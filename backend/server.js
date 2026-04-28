@@ -1,13 +1,18 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import 'dotenv/config';
+import dotenv from "dotenv";
 import figureRoutes from './routes/figureRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
+dotenv.config();
+
 const app = express();
 //Middleware
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://figure-tracker.vercel.app'],
+    credentials: true
+}));
 app.use(express.json());
 
 //MongoDB connection

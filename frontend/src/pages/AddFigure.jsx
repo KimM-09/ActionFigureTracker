@@ -7,6 +7,7 @@ import { Ban } from 'lucide-react';
 const AddFigure = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
 
   const [formData, setFormData ] = useState({
     name: '',
@@ -27,7 +28,7 @@ const AddFigure = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5001/api/figures/add', {
+      const response = await fetch(`${API_URL}/api/figures/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

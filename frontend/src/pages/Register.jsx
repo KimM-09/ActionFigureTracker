@@ -10,12 +10,13 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const { login } = useAuth();
     const navigate = useNavigate();
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
   
     const handleSubmit = async (e) => {
       e.preventDefault();
   
       try {
-        const response = await fetch('http://localhost:5001/api/users/register', {
+        const response = await fetch(`${API_URL}/api/users/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username, email, password })
@@ -29,7 +30,7 @@ const Register = () => {
           alert(data.message)
         }
       } catch (error) {
-        console.error("Login error", error);
+        console.error("Registration error", error);
       }
     };
   

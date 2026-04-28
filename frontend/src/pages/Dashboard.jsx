@@ -10,11 +10,12 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortType, setSortType] = useState('sort');
   const { user } = useAuth();
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
 
   useEffect(() => {
     const fetchCollection = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/figures/my-collection', {
+        const response = await fetch(`${API_URL}/api/figures/my-collection`, {
           headers: {
             'Authorization': `Bearer ${user.token}`, 
           },
@@ -59,7 +60,7 @@ const Dashboard = () => {
     if(!window.confirm("Are you sure you want to remove this figure from your shelf?")) return
     
     try {
-      const response = await fetch(`http://localhost:5001/api/figures/${id}`, {
+      const response = await fetch(`${API_URL}/api/figures/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${user.token}`,
