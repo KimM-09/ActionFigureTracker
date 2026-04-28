@@ -8,9 +8,10 @@ import userRoutes from './routes/userRoutes.js';
 dotenv.config();
 
 const app = express();
+
 //Middleware
 app.use(cors({
-    origin: ['https://action-figure-tracker.vercel.app','http://localhost:5173'],
+    origin: ['https://action-figure-tracker-b96d.vercel.app','http://localhost:5173'],
     credentials: true
 }));
 app.use(express.json());
