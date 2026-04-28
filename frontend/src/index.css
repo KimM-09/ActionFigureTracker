@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+    --color-gold: #E5CA37;
+    --color-gold-light: #F2E499;
+    --color-dark-gray: #202020;
+    --color-light-gray: #F4F4F9
+}
+
+html {
+    background-image: url('/assets/diamond-plate-12003.webp');
+    background-size: cover;
+}

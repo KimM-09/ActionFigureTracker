@@ -47,7 +47,7 @@ const AddFigure = () => {
     }
   }
   return (
-    <div className='max-w-2xl mx-auto, mt-10 p-6 bg-white rounded-xl shadow-lg border border-gray-100'>
+    <div className='max-w-2xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg border border-gray-100'>
       <h2 className='text-2xl font-bold text-gray-800 mb-6'>Add to Collection</h2>
 
       <form onSubmit={handleSubmit} className='space-y-4'>
@@ -150,16 +150,16 @@ const AddFigure = () => {
         <div className='flex gap-4 pt-4'>
           <button
             type='submit'
-            className='flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 font-bold transition'
+            className='flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 hover:cursor-pointer font-bold transition'
           >
             Add to Collection
           </button>
           <button
             type='button'
-            onClick={() => navigate('/')}
-            className='flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 transition'
+            onClick={() => navigate('/my-collection')}
+            className='flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 hover:cursor-pointer transition text-center flex items-center justify-center gap-2'
           >
-            Cancel <Ban />
+            Cancel <Ban className='w-5 h-5' />
           </button>
         </div>
       </form>

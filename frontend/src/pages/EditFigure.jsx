@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useAuth } from '../context/AuthContext';
+import { Ban } from 'lucide-react';
 
 const EditFigure = () => {
     const { id } = useParams();
@@ -53,11 +54,7 @@ const EditFigure = () => {
             });
 
             if(response.ok){
-                navigate('/my-collection');
-            } else {
-                const errorData = await response.json();
-            console.error("Server Error Details:", errorData);
-            alert(`Error: ${errorData.message || 'Something went wrong'}`);
+                navigate('/my-collection'); //go back to the dashboard to see the updated figure
             }
         } catch (error) {
             console.error("Update error", error);
@@ -141,6 +138,18 @@ const EditFigure = () => {
             </div>
 
             <div>
+                <label className='block text-sm font-medium text-gray-700'>Condition</label>
+                <input
+                    type='text'
+                    name='condition'
+                    value={formData.condition}
+                    required
+                    className='mt-1 block w-full p-2 border rounded-md focus:ring-blue-500'
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
                 <label className='block text-sm font-medium text-gray-700'>Notes</label>
                 <textarea
                     name='notes'
@@ -154,16 +163,16 @@ const EditFigure = () => {
             <div className='flex gap-4 pt-4'>
                 <button
                     type='submit'
-                    className='flex-1 bg-green-600 text-white py-2 rounded-md hover:bg-green-700 font-bold'
+                    className='flex-1 bg-green-600 text-white py-2 rounded-md hover:bg-green-700 hover:cursor-pointer font-bold'
                 >
                     Update Figure
                 </button>
                 <button
                     type='button'
-                    className='flex-1 bg-gray-200 text-gray-700 py-2 rounded-md'
+                    className='flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 hover:cursor-pointer transition text-center flex items-center justify-center gap-2'
                     onClick={() => navigate('/my-collection')}
                 >
-                    Cancel
+                    Cancel <Ban className='w-5 h-5' />
                 </button>
             </div>
         </form>

@@ -30,6 +30,26 @@ export const getMyFigs = async(req, res) => {
     }
 };
 
+//Get a single figure
+export const getFigure = async (req, res) => {
+    try {
+        const figure = await Figure.findById(req.params.id);
+
+        if(!figure){
+            return res.status(404).json({ message: "Figure not found" });
+        }
+
+        //Check if the logged in user owns this figure
+        if (figure.owner.toString() !== req.user.id) {
+            return res.status(401).json({ message: "User not authorized" });
+        }
+
+        res.json(figure);
+    } catch (error) {
+        res.status(500).json({ message: "Server error" });
+    }
+};
+
 //Update a specific figure
 export const updateFigure = async (req, res) => {
     try {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router';
+import LoginButton from '../components/LoginButton';
 
 //user login page - also have button to register
 const Login = () => {
@@ -32,22 +33,20 @@ const Login = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen bg-gray-100'>
-      <form onSubmit={handleSubmit} className='p-8 bg-white shadow-md rounded-lg w-96'>
-        <h2 className='text-2xl font-bold mb-6 text-center'>Collector Login</h2>
+    <div className='flex flex-col items-center justify-center h-screen'>
+      <form onSubmit={handleSubmit} className='p-8 bg-dark-gray shadow-md rounded-lg w-96'>
+        <h2 className='text-2xl font-bold mb-6 text-gold text-center'>Collector Login</h2>
         <input
           type='email' placeholder='Email'
-          className='w-full p-2 mb-4 border rounded'
+          className='w-full p-2 mb-4 bg-white border rounded'
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password" placeholder='Password'
-          className='w-full p-2 mb-4 border rounded'
+          className='w-full p-2 mb-4 bg-white border rounded'
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className='w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700'>
-          Sign In
-        </button>
+        <LoginButton />
       </form>
     </div>
   );
