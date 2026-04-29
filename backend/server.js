@@ -11,7 +11,7 @@ const app = express();
 
 //Middleware
 app.use(cors({
-    origin: ['https://action-figure-tracker-b96d.vercel.app','http://localhost:5173'],
+    origin: ['https://action-figure-tracker-b96d.vercel.app', 'https://action-figure-tracker-b96d-kim-mclanes-projects.vercel.app/','http://localhost:5173'],
     credentials: true
 }));
 app.use(express.json());
