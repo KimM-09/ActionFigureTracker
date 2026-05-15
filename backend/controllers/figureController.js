@@ -72,6 +72,7 @@ export const updateFigure = async (req, res) => {
 
         res.json(updatedFigure)
     } catch (error) {
+        console.error("Error updating figure", error);
         res.status(500).json({ message: "Server error during update" });
     }
 };
