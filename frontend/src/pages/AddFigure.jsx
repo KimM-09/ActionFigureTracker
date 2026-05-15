@@ -41,7 +41,7 @@ const AddFigure = () => {
         navigate('/my-collection') // go back to the dashboard to see the new addition
       } else {
         const errorData = await response.json();
-        alert(error.message || 'Failed to add figure.')
+        alert(errorData.message || 'Failed to add figure.')
       }
     } catch (error) {
       console.error("Error adding figure", error);

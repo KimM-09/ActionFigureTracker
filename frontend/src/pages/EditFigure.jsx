@@ -56,6 +56,10 @@ const EditFigure = () => {
 
             if(response.ok){
                 navigate('/my-collection'); //go back to the dashboard to see the updated figure
+            } else {
+                const errorData = await response.json();
+                console.error("Update failed", errorData);
+                alert(`Update failed: ${errorData.message || 'Unknown error'}`);
             }
         } catch (error) {
             console.error("Update error", error);
