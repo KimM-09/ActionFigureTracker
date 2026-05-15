@@ -67,7 +67,7 @@ export const updateFigure = async (req, res) => {
         const updatedFigure = await Figure.findByIdAndUpdate(
             req.params.id,
             req.body,
-            { returnDocument: after } //Returns the modified document rather than the original
+            { returnDocument: "after" } //Returns the modified document rather than the original
         );
 
         res.json(updatedFigure)
